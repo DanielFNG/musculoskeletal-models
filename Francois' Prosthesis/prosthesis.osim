@@ -2,7 +2,7 @@
 <OpenSimDocument Version="30000">
 	<Model name="heremans-prosthesis">
 		<credits>Design created by Francois Heremans. Ported to OpenSim by Daniel Gordon.</credits>
-		<publications></publications>
+		<publications />
 		<length_units>meters</length_units>
 		<force_units>N</force_units>
 		<!--Acceleration due to gravity.-->
@@ -30,7 +30,7 @@
 				</Body>
 				<Body name="adapter">
 					<mass>0.99</mass>
-					<mass_center> -0.04401473 0.13715436 0.04861221</mass_center>
+					<mass_center> -0.0440147 0.137154 0.0486122</mass_center>
 					<inertia_xx>0.04789311</inertia_xx>
 					<inertia_yy>0.04907142</inertia_yy>
 					<inertia_zz>0.009595415</inertia_zz>
@@ -71,45 +71,46 @@
 									<!--Name of texture file .jpg, .bmp-->
 									<texture_file />
 									<!--in body transform specified as 3 rotations (rad) followed by 3 translations rX rY rZ tx ty tz-->
-									<transform> -0 0 -0 0 0 0</transform>
+									<transform> 1.57079 0 1.57079 0 0 0</transform>
 									<!--Three scale factors for display purposes: scaleX scaleY scaleZ-->
 									<scale_factors> 1 1 1</scale_factors>
 									<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded-->
 									<display_preference>4</display_preference>
 									<!--Display opacity between 0.0 and 1.0-->
-									<opacity>1.0</opacity>
+									<opacity>1</opacity>
 								</DisplayGeometry>
 							</objects>
 							<groups />
 						</GeometrySet>
 						<!--Three scale factors for display purposes: scaleX scaleY scaleZ-->
-						<scale_factors> .001 .001 .001</scale_factors>
+						<scale_factors> 0.001 0.001 0.001</scale_factors>
 						<!--transform relative to owner specified as 3 rotations (rad) followed by 3 translations rX rY rZ tx ty tz-->
-						<transform> -0 0 -0 0 0 0</transform>
+						<transform> -0 0 -0 0.152377 0.458637 -0.0850615</transform>
 						<!--Whether to show a coordinate frame-->
 						<show_axes>false</show_axes>
 						<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded Can be overriden for individual geometries-->
 						<display_preference>4</display_preference>
 					</VisibleObject>
 					<WrapObjectSet>
+						<!--All properties of this object have their default values.-->
 					</WrapObjectSet>
 				</Body>
 				<Body name="shank">
 					<mass>0.59</mass>
-					<mass_center> -0.00422030 -0.12931861 0.0</mass_center>
+					<mass_center> -0.0042203 -0.129319 0</mass_center>
 					<inertia_xx>0.02161997</inertia_xx>
 					<inertia_yy>0.0002990548</inertia_yy>
 					<inertia_zz>0.02162341</inertia_zz>
 					<inertia_xy>0.0005851441</inertia_xy>
-					<inertia_xz>0.0</inertia_xz>
-					<inertia_yz>0.0</inertia_yz>
+					<inertia_xz>0</inertia_xz>
+					<inertia_yz>0</inertia_yz>
 					<!--Joint that connects this body with the parent body.-->
 					<Joint>
 						<CustomJoint name="adapter_shank">
 							<!--Name of the parent body to which this joint connects its owner body.-->
 							<parent_body>adapter</parent_body>
 							<!--Location of the joint in the parent body specified in the parent reference frame. Default is (0,0,0).-->
-							<location_in_parent>0 0 0</location_in_parent>
+							<location_in_parent>-0.065 0.155 0.1</location_in_parent>
 							<!--Orientation of the joint in the parent body specified in the parent reference frame. Euler XYZ body-fixed rotation angles are used to express the orientation. Default is (0,0,0).-->
 							<orientation_in_parent>0 0 0</orientation_in_parent>
 							<!--Location of the joint in the child body specified in the child reference frame. For SIMM models, this vector is always the zero vector (i.e., the body reference frame coincides with the joint). -->
@@ -145,6 +146,55 @@
 							<!--Defines how the child body moves with respect to the parent as a function of the generalized coordinates.-->
 							<SpatialTransform>
 								<!--3 Axes for rotations are listed first.-->
+								<TransformAxis name="rotation1">
+									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
+									<coordinates></coordinates>
+									<!--Rotation or translation axis for the transform.-->
+									<axis>1 0 0</axis>
+									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
+									<function>
+										<Constant>
+											<value>0</value>
+										</Constant>
+									</function>
+								</TransformAxis>
+								<TransformAxis name="rotation2">
+									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
+									<coordinates></coordinates>
+									<!--Rotation or translation axis for the transform.-->
+									<axis>0 1 0</axis>
+									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
+									<function>
+										<Constant>
+											<value>0</value>
+										</Constant>
+									</function>
+								</TransformAxis>
+								<TransformAxis name="rotation3">
+									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
+									<coordinates></coordinates>
+									<!--Rotation or translation axis for the transform.-->
+									<axis>0 0 1</axis>
+									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
+									<function>
+										<Constant>
+											<value>0</value>
+										</Constant>
+									</function>
+								</TransformAxis>
+								<!--3 Axes for translations are listed next.-->
+								<TransformAxis name="translation1">
+									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
+									<coordinates></coordinates>
+									<!--Rotation or translation axis for the transform.-->
+									<axis>1 0 0</axis>
+									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
+									<function>
+										<Constant>
+											<value>0</value>
+										</Constant>
+									</function>
+								</TransformAxis>
 								<TransformAxis name="translation2">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
 									<coordinates>shank_ty</coordinates>
@@ -155,6 +205,18 @@
 										<LinearFunction>
 											<coefficients> 1 0</coefficients>
 										</LinearFunction>
+									</function>
+								</TransformAxis>
+								<TransformAxis name="translation3">
+									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
+									<coordinates></coordinates>
+									<!--Rotation or translation axis for the transform.-->
+									<axis>0 0 1</axis>
+									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
+									<function>
+										<Constant>
+											<value>0</value>
+										</Constant>
 									</function>
 								</TransformAxis>
 							</SpatialTransform>
@@ -172,7 +234,7 @@
 									<!--Name of texture file .jpg, .bmp-->
 									<texture_file />
 									<!--in body transform specified as 3 rotations (rad) followed by 3 translations rX rY rZ tx ty tz-->
-									<transform> 0 0 0 0 0 0</transform>
+									<transform> 0 1.57079 0 0 0 0</transform>
 									<!--Three scale factors for display purposes: scaleX scaleY scaleZ-->
 									<scale_factors> 1 1 1</scale_factors>
 									<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded-->
@@ -184,9 +246,9 @@
 							<groups />
 						</GeometrySet>
 						<!--Three scale factors for display purposes: scaleX scaleY scaleZ-->
-						<scale_factors> .001 .001 .001</scale_factors>
+						<scale_factors> 0.001 0.001 0.001</scale_factors>
 						<!--transform relative to owner specified as 3 rotations (rad) followed by 3 translations rX rY rZ tx ty tz-->
-						<transform> 0 0 0 0 0 0</transform>
+						<transform> 0 0 0 -0.0613736 -0.292805 0.0328045</transform>
 						<!--Whether to show a coordinate frame-->
 						<show_axes>false</show_axes>
 						<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded Can be overriden for individual geometries-->
@@ -194,21 +256,21 @@
 					</VisibleObject>
 				</Body>
 				<Body name="foot">
-					<mass>1.0</mass>
-					<mass_center> 0.07552403 -0.03306617 0.0</mass_center>
-					<inertia_xx>0.000001923815</inertia_xx>
-					<inertia_yy>0.000012226251</inertia_yy>
-					<inertia_zz>0.000011119103</inertia_zz>
-					<inertia_xy>-0.000002707764</inertia_xy>
-					<inertia_xz>0.0</inertia_xz>
-					<inertia_yz>0.0</inertia_yz>
+					<mass>1</mass>
+					<mass_center> 0.075524 -0.0330662 0</mass_center>
+					<inertia_xx>1.923815e-006</inertia_xx>
+					<inertia_yy>1.2226251e-005</inertia_yy>
+					<inertia_zz>1.1119103e-005</inertia_zz>
+					<inertia_xy>-2.707764e-006</inertia_xy>
+					<inertia_xz>0</inertia_xz>
+					<inertia_yz>0</inertia_yz>
 					<!--Joint that connects this body with the parent body.-->
 					<Joint>
 						<CustomJoint name="shank_foot">
 							<!--Name of the parent body to which this joint connects its owner body.-->
 							<parent_body>shank</parent_body>
 							<!--Location of the joint in the parent body specified in the parent reference frame. Default is (0,0,0).-->
-							<location_in_parent>0 0 0</location_in_parent>
+							<location_in_parent>-0.0025 -0.2253 0</location_in_parent>
 							<!--Orientation of the joint in the parent body specified in the parent reference frame. Euler XYZ body-fixed rotation angles are used to express the orientation. Default is (0,0,0).-->
 							<orientation_in_parent>0 0 0</orientation_in_parent>
 							<!--Location of the joint in the child body specified in the child reference frame. For SIMM models, this vector is always the zero vector (i.e., the body reference frame coincides with the joint). -->
@@ -244,6 +306,30 @@
 							<!--Defines how the child body moves with respect to the parent as a function of the generalized coordinates.-->
 							<SpatialTransform>
 								<!--3 Axes for rotations are listed first.-->
+								<TransformAxis name="rotation1">
+									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
+									<coordinates></coordinates>
+									<!--Rotation or translation axis for the transform.-->
+									<axis>1 0 0</axis>
+									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
+									<function>
+										<Constant>
+											<value>0</value>
+										</Constant>
+									</function>
+								</TransformAxis>
+								<TransformAxis name="rotation2">
+									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
+									<coordinates></coordinates>
+									<!--Rotation or translation axis for the transform.-->
+									<axis>0 1 0</axis>
+									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
+									<function>
+										<Constant>
+											<value>0</value>
+										</Constant>
+									</function>
+								</TransformAxis>
 								<TransformAxis name="rotation3">
 									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
 									<coordinates>foot_rz</coordinates>
@@ -254,6 +340,43 @@
 										<LinearFunction>
 											<coefficients> 1 0</coefficients>
 										</LinearFunction>
+									</function>
+								</TransformAxis>
+								<!--3 Axes for translations are listed next.-->
+								<TransformAxis name="translation1">
+									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
+									<coordinates></coordinates>
+									<!--Rotation or translation axis for the transform.-->
+									<axis>1 0 0</axis>
+									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
+									<function>
+										<Constant>
+											<value>0</value>
+										</Constant>
+									</function>
+								</TransformAxis>
+								<TransformAxis name="translation2">
+									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
+									<coordinates></coordinates>
+									<!--Rotation or translation axis for the transform.-->
+									<axis>0 1 0</axis>
+									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
+									<function>
+										<Constant>
+											<value>0</value>
+										</Constant>
+									</function>
+								</TransformAxis>
+								<TransformAxis name="translation3">
+									<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
+									<coordinates></coordinates>
+									<!--Rotation or translation axis for the transform.-->
+									<axis>0 0 1</axis>
+									<!--Transform function of the generalized coordinates used to        represent the amount of transformation along a specified axis.-->
+									<function>
+										<Constant>
+											<value>0</value>
+										</Constant>
 									</function>
 								</TransformAxis>
 							</SpatialTransform>
@@ -271,21 +394,21 @@
 									<!--Name of texture file .jpg, .bmp-->
 									<texture_file />
 									<!--in body transform specified as 3 rotations (rad) followed by 3 translations rX rY rZ tx ty tz-->
-									<transform> 0 0 0 0 0 0</transform>
+									<transform> 0 1.57079 0 0 0 0</transform>
 									<!--Three scale factors for display purposes: scaleX scaleY scaleZ-->
 									<scale_factors> 1 1 1</scale_factors>
 									<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded-->
 									<display_preference>4</display_preference>
 									<!--Display opacity between 0.0 and 1.0-->
-									<opacity>1.0</opacity>
+									<opacity>1</opacity>
 								</DisplayGeometry>
 							</objects>
 							<groups />
 						</GeometrySet>
 						<!--Three scale factors for display purposes: scaleX scaleY scaleZ-->
-						<scale_factors> .001 .001 .001</scale_factors>
+						<scale_factors> 0.001 0.001 0.001</scale_factors>
 						<!--transform relative to owner specified as 3 rotations (rad) followed by 3 translations rX rY rZ tx ty tz-->
-						<transform> 0 0 0 0 0 0</transform>
+						<transform> 0 0 0 -0.0837469 -0.0854644 0.076795</transform>
 						<!--Whether to show a coordinate frame-->
 						<show_axes>false</show_axes>
 						<!--Display Pref. 0:Hide 1:Wire 3:Flat 4:Shaded Can be overriden for individual geometries-->
@@ -297,8 +420,7 @@
 		</BodySet>
 		<!--Constraints in the model.-->
 		<ConstraintSet>
-			<objects>
-			</objects>
+			<objects />
 			<groups />
 		</ConstraintSet>
 		<!--Forces in the model.-->
